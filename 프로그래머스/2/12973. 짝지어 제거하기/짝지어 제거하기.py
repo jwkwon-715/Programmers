@@ -1,11 +1,9 @@
 def solution(s):
-    answer = []
+    stack = []
     
     for i in s:
-        if answer and i == answer[-1]:
-            answer.pop()
-        else:
-            answer.append(i)
+        if not stack : stack.append(i); continue
+        if stack[-1] == i : stack.pop(); continue
+        stack.append(i)
     
-
-    return 0 if len(answer)>0 else 1
+    return 0 if stack else 1
