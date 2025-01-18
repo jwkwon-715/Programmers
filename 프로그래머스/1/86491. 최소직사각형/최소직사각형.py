@@ -1,4 +1,9 @@
 def solution(sizes):
-    left = max([sorted(i)[0] for i in sizes])
-    right = max([sorted(i)[1] for i in sizes])
-    return left*right
+    row = 0
+    col = 0
+    for a, b in sizes:
+        if a < b:
+            a, b = b, a
+        row = max(row, a)
+        col = max(col, b)
+    return row * col
